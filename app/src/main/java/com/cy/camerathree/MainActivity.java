@@ -33,8 +33,11 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.things.device.TimeManager;
+
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+import java.util.Calendar;
 
 /**
  * Skeleton of an Android Things activity.
@@ -78,6 +81,20 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /*
+        自动校准系统时间
+        导入依赖
+        添加设置代码
+         */
+        try {
+            TimeManager timeManager = TimeManager.getInstance();
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.YEAR, 2019);
+            timeManager.setTime(calendar.getTimeInMillis());
+        } catch (Exception e) {
+            Log.e("SET_TIME", "SET_TIME 权限失效");
+        }
 
         //有关设置全屏
 //        Window w = getWindow();

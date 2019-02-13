@@ -26,6 +26,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     compileOnly 'com.google.android.things:androidthings:+'
 
+    compileOnly 'com.google.android.things:androidthings:1.0'//按照校准时间的步骤
+
     implementation 'com.google.firebase:firebase-core:11.6.0'
     implementation 'com.google.firebase:firebase-database:11.6.0'
     implementation 'com.google.firebase:firebase-storage:11.6.0'
